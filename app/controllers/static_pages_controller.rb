@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
     @swear_chain = params[:swear_chain] if params[:swear_chain].present?
     @min_length = params[:min_length] || 2
     @max_length = params[:max_length] || 11
-    @accept_variants = params[:accept_variants].to_s.downcase == "true"
+    @accept_variants = params[:accept_variants].present? ? params[:accept_variants].to_s.downcase == "true" : true
   end
 
   def swear_chain
