@@ -10,7 +10,7 @@ class StaticPagesController < ApplicationController
   def swear_chain
     min_length = params["min_length"].to_i
     max_length = params["max_length"].to_i
-    accept_variants = params["accept_variants"]
+    accept_variants = params["accept_variants"].to_s.downcase == "true"
 
     if min_length <= max_length
       swear_chain = generate_swear_chain(min_length, max_length, accept_variants)
