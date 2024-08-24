@@ -19,6 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 
+set :environment, 'development'
+
 every 14.minutes do
   rake "auto_refresh:home"
 end
