@@ -20,7 +20,6 @@ gem "bootsnap", require: false
 gem "sassc-rails"
 gem "bootstrap-sass"
 gem "font-awesome-rails"
-gem "whenever", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
