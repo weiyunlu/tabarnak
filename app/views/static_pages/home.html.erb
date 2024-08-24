@@ -9,7 +9,7 @@
                 <span class='largeFont'>Longueur maximale: <%= f.select :max_length, ((1..11).map {|i| [i,i]}), selected: @max_length %></span>
             </div>
             <div>
-                <span class='largeFont'>Permettre les variants: <%= f.check_box :accept_variants, { checked: true }, "true", "false" %></span>
+                <span class='largeFont'>Permettre les variants: <%= f.check_box :accept_variants, { checked: @accept_variants }, "true", "false" %></span>
             </div>
             <% if @swear_chain %>
                 <div>

@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
     @swear_chain = params[:swear_chain] if params[:swear_chain].present?
     @min_length = params[:min_length] || 2
     @max_length = params[:max_length] || 11
+    @accept_variants = params[:accept_variants].to_s.downcase == "true"
   end
 
   def swear_chain
@@ -17,7 +18,7 @@ class StaticPagesController < ApplicationController
       swear_chain = "La longueur minimale peut pas être plus grande que la longeuer maximale!"
     end
 
-    redirect_to home_path(swear_chain: swear_chain, min_length: min_length, max_length: max_length)
+    redirect_to home_path(swear_chain: swear_chain, min_length: min_length, max_length: max_length, accept_variants: accept_variants)
   end
 
   def valid_params?
