@@ -7,8 +7,9 @@ class StaticPagesController < ApplicationController
     @min_length = params[:min_length] || 2
     @max_length = params[:max_length] || 11
     @accept_variants = params[:accept_variants].present? ? params[:accept_variants].to_s.downcase == "true" : true
+    @audio_enabled = params[:audio_enabled].present? ? params[:audio_enabled].to_s.downcase == "true" : true
     
-    if @swear_chain.present?
+    if @swear_chain.present? && @audio_enabled
       @read_address = "https://translate.google.com/translate_tts?tl=fr&ie=UTF-8&client=tw-ob&q=#{@swear_chain}" 
       url = URI.parse(URI::Parser.new.escape(@read_address))
       audio = Net::HTTP.get(url)
@@ -20,6 +21,7 @@ class StaticPagesController < ApplicationController
     min_length = params["min_length"].to_i
     max_length = params["max_length"].to_i
     accept_variants = params["accept_variants"].to_s.downcase == "true"
+    audio_enabled = params["audio_enabled"].to_s.downcase == "true"
 
     if min_length <= max_length
       swear_chain = generate_swear_chain(min_length, max_length, accept_variants)
@@ -27,7 +29,7 @@ class StaticPagesController < ApplicationController
       swear_chain = "La longueur minimale peut pas être plus grande que la longeuer maximale!"
     end
 
-    redirect_to home_path(swear_chain: swear_chain, min_length: min_length, max_length: max_length, accept_variants: accept_variants)
+    redirect_to home_path(swear_chain: swear_chain, min_length: min_length, max_length: max_length, accept_variants: accept_variants, audio_enabled: audio_enabled)
   end
 
   def valid_params?

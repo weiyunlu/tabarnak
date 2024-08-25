@@ -11,18 +11,25 @@
             <div>
                 <span class='largeFont'>Permettre les variants: <%= f.check_box :accept_variants, { checked: @accept_variants }, "true", "false" %></span>
             </div>
+            <div>
+                <span class='largeFont'>Lecture audio: <%= f.check_box :audio_enabled, { checked: @audio_enabled }, "true", "false" %></span>
+            </div>
             <% if @swear_chain %>
+            <div style="padding:10px">
                 <div>
                     <span class='hugeFontRed'><%= @swear_chain %></span>
                 </div>
-                <div>
-                    <audio
-                        controls
-                        src="data:audio/mp3;base64,<%= @audio64 %>">
-                    </audio>
-                </div>
+                <% if @audio_enabled %>
+                    <div>
+                        <audio
+                            controls
+                            src="data:audio/mp3;base64,<%= @audio64 %>">
+                        </audio>
+                    </div>
+                <% end %>
             <% end %>
-            <div>
+            </div>
+            <div style="padding:10px">
                 <span class='largeFont'>
                     <%= f.submit "Vas-y!", class: "btn btn-primary" %>
                 </span>
