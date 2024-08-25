@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  require 'tts'
+
   def home
     puts params
     @swear_chain = params[:swear_chain] if params[:swear_chain].present?

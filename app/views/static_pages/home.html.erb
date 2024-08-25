@@ -15,6 +15,10 @@
                 <div>
                     <span class='hugeFontRed'><%= @swear_chain %></span>
                 </div>
+                <div>
+                    <embed src="https://translate.google.com/translate_tts?tl=fr&ie=UTF-8&client=tw-ob&q=#{@swear_chain}" width:500px; height: 300px;>
+                    <a href="https://translate.google.com/translate_tts?tl=fr&ie=UTF-8&client=tw-ob&q=tabarnak">read it </a>
+                </div>
             <% end %>
             <div>
                 <span class='largeFont'><%= f.submit "Vas-y!", class: "btn btn-primary" %></span>
