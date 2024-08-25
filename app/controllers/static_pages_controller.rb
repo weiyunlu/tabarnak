@@ -1,12 +1,19 @@
 class StaticPagesController < ApplicationController
-  require 'tts'
-
+  require 'net/http'
+  
   def home
     puts params
     @swear_chain = params[:swear_chain] if params[:swear_chain].present?
     @min_length = params[:min_length] || 2
     @max_length = params[:max_length] || 11
     @accept_variants = params[:accept_variants].present? ? params[:accept_variants].to_s.downcase == "true" : true
+    
+    if @swear_chain.present?
+      @read_address = "https://translate.google.com/translate_tts?tl=fr&ie=UTF-8&client=tw-ob&q=#{@swear_chain}" 
+      url = URI.parse(URI::Parser.new.escape(@read_address))
+      audio = Net::HTTP.get(url)
+      @audio64 = Base64.encode64(audio)
+    end
   end
 
   def swear_chain
