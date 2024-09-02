@@ -26,7 +26,8 @@ class StaticPagesController < ApplicationController
     if min_length <= max_length
       swear_chain = generate_swear_chain(min_length, max_length, accept_variants)
     else
-      swear_chain = "La longueur minimale peut pas être plus grande que la longeuer maximale!"
+      swear_chain = ""
+      flash[:alert] = "La longueur minimale peut pas être plus grande que la longueur maximale!"
     end
 
     redirect_to home_path(swear_chain: swear_chain, min_length: min_length, max_length: max_length, accept_variants: accept_variants, audio_enabled: audio_enabled)

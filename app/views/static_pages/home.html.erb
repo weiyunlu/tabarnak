@@ -1,5 +1,6 @@
 <center>
     <h1>Générer une chaîne de sacres</h1>
+
     <p>
         <%= form_with url: swear_chain_path, method: :post do |f| %>
             <div>
@@ -14,12 +15,15 @@
             <div>
                 <span class='largeFont'>Lecture audio: <%= f.check_box :audio_enabled, { checked: @audio_enabled }, "true", "false" %></span>
             </div>
+            <% flash.each do |message_type, message| %>
+                 <%= content_tag(:div, sanitize(message), class: "largeFontRed alert alert-#{message_type}") %>
+            <% end %>
             <% if @swear_chain %>
             <div style="padding:10px">
                 <div>
                     <span class='hugeFontRed'><%= @swear_chain %></span>
                 </div>
-                <% if @audio_enabled %>
+                <% if @audio_enabled && @swear_chain.present? %>
                     <div>
                         <audio
                             controls

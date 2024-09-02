@@ -19,6 +19,12 @@
     font-size : 20px;
 }
 
+.largeFontRed
+{
+    font-size : 20px;
+    color : red;
+}
+
 .hugeFontRed
 {
     font-size : 30px;
