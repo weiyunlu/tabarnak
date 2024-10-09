@@ -1,24 +1,3 @@
-# README
+Générez des chaînes de sacres québecois aléatoires lorsque vous êtes trop en colère pour y penser par vous-même, mais vous en avez besoin.  Lire-les à haut voix avec l'integration de Google Translate Text-to-Speech.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Trouve-moi ici: https://tabarnak.onrender.com
